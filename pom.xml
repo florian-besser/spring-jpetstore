@@ -103,6 +103,23 @@
                     <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
+            <plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>exec-maven-plugin</artifactId>
+	    	  <version>1.4.0</version>
+			  <executions>
+			    <execution><!-- Run our version calculation script -->
+			      <id>Run Shell</id>
+			      <phase>install</phase>
+			      <goals>
+			        <goal>exec</goal>
+			      </goals>
+			      <configuration>
+			        <executable>${basedir}/dockerize.sh</executable>
+			      </configuration>
+			    </execution>
+			  </executions>
+			</plugin>
         </plugins>
     </build>
     <repositories>
@@ -643,6 +660,12 @@
             <version>${com.h2database.version}</version>
             <!-- <scope>provided</scope> -->
         </dependency>
+        <dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901-1.jdbc4</version>
+		</dependency>
+		        
         <!-- == Begin Tomcat == -->
         <!-- Servlet API 3.0 & JSP API 2.2 -->
         <dependency>
