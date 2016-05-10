@@ -16,4 +16,4 @@
 #
 
 
-docker build -t mytomcat .
+#docker build -t mytomcat .
